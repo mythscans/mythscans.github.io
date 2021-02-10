@@ -1,5 +1,10 @@
 body {
     margin: 0px;
+    background-color: rgb(49, 49, 49);
+}
+.seriesname {
+    color: rgb(172, 172, 172);
+    text-decoration: none;
 }
 .chapter {
     width: 80vw;
