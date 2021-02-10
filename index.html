@@ -13,13 +13,16 @@
   <script>
       function sleep(ms) {
             return new Promise(resolve => setTimeout(resolve, ms));
-        }
-      var test;
-    $.getJSON('./series.json', data => {
-        console.log(data.responseText); //["doc1.jpg", "doc2.jpg", "doc3.jpg"]
-        test = data;
-    });
-      async await sleep(500);
-      console.log(test);
+      }
+      async function getseries() {
+          var test;
+          $.getJSON('./series.json', data => {
+              console.log(data.responseText); //["doc1.jpg", "doc2.jpg", "doc3.jpg"]
+              test = data;
+          });
+          await sleep(500);
+          console.log(test);
+      }
+      getseries();
   </script>
 </body>
