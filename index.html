@@ -10,6 +10,7 @@
 </head>
 <body>
   <h1>Listing /somedir</h1><!-- Custom Script (defered load, after dom ready) -->
+  <div id="outputdiv"></div>
   <script>
       function sleep(ms) {
             return new Promise(resolve => setTimeout(resolve, ms));
@@ -17,7 +18,7 @@
       function getseries() {
           $.getJSON('series.json', function(result) {
               console.log(result); 
-              document.append(result);
+              document.getElementById("outputdiv")=result.series.join(",");
           });
           //console.log(test.responseText);
       }
