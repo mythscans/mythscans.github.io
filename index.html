@@ -11,11 +11,15 @@
 <body>
   <h1>Listing /somedir</h1><!-- Custom Script (defered load, after dom ready) -->
   <script>
+      function sleep(ms) {
+            return new Promise(resolve => setTimeout(resolve, ms));
+        }
       var test;
     $.getJSON('./series.json', data => {
         console.log(data.responseText); //["doc1.jpg", "doc2.jpg", "doc3.jpg"]
         test = data;
     });
+      async await sleep(500);
       console.log(test);
   </script>
 </body>
