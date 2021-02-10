@@ -18,7 +18,7 @@
       function getseries() {
           $.getJSON('series.json', function(result) {
               console.log(result); 
-              document.getElementById("outputdiv")=result.series.join(",");
+              document.getElementById("outputdiv").innerHTML=result.series.join(",");
           });
           //console.log(test.responseText);
       }
