@@ -19,7 +19,7 @@
           $.getJSON('series.json', function(result) {
               console.log(result); 
               for(var i = 0; i < result.series.length; i++) {
-                $.getJSON(`/${result.series.name}/series-config.json`, function(result1) {
+                $.getJSON(`/${result.series[i]}/series-config.json`, function(result1) {
                   document.getElementById("outputdiv").innerHTML = document.getElementById("outputdiv").innerHTML + `<a href="/${result.series[i]}/20-1">${result1.name}</a>`
                 })
                 
