@@ -10,7 +10,7 @@ body {
 .header {
     position: absolute;
     top:0px;
-    height: 12%;
+    height: 80px;
     width: 100vw;
     color: floralwhite;
     background-color: #386eeb;
