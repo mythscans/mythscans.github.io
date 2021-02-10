@@ -14,12 +14,10 @@
       function sleep(ms) {
             return new Promise(resolve => setTimeout(resolve, ms));
       }
-      async function getseries() {
-          var test;
-          $.getJSON('./series.json', function(result) {
+      function getseries() {
+          $.getJSON('series.js', function(result) {
               console.log(result); //["doc1.jpg", "doc2.jpg", "doc3.jpg"]\
           });
-          await sleep(500);
           //console.log(test.responseText);
       }
       getseries();
