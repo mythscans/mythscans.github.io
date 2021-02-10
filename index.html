@@ -18,7 +18,9 @@
       function getseries() {
           $.getJSON('series.json', function(result) {
               console.log(result); 
-              document.getElementById("outputdiv").innerHTML=result.series.join(",");
+              for(var i = 0; i < result.series.length; i++) {
+                document.getElementById("outputdiv").innerHTML = document.getElementById("outputdiv").innerHTML + `<a href="/${result.series[i]}/20-1">${result.series[i]}</a>`
+              }
           });
           //console.log(test.responseText);
       }
