@@ -16,7 +16,8 @@
       }
       function getseries() {
           $.getJSON('series.json', function(result) {
-              console.log(result); //["doc1.jpg", "doc2.jpg", "doc3.jpg"]\
+              console.log(result); 
+              document.append(result);
           });
           //console.log(test.responseText);
       }
