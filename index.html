@@ -16,9 +16,8 @@
       }
       async function getseries() {
           var test;
-          $.getJSON('./series.json', data => {
-              console.log(data.responseText); //["doc1.jpg", "doc2.jpg", "doc3.jpg"]
-              test = data;
+          $.getJSON('./series.json', function(result) {
+              console.log(result); //["doc1.jpg", "doc2.jpg", "doc3.jpg"]\
           });
           await sleep(500);
           //console.log(test.responseText);
