@@ -39,8 +39,10 @@ body {
 }
 .seriesinfo {
     width: 95%;
+    height: 1000px;
 }
 .seriesimage {
-    width: 45%;
+    width: 25%;
     float: left;
+
 }
