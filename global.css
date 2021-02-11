@@ -41,6 +41,7 @@ body {
     width: 95%;
     height: 1000px;
     background-color: rgb(31, 31, 31);
+    margin: auto;
 }
 .seriesimage {
     width: 25%;
