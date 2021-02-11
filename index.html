@@ -18,7 +18,7 @@
       function sleep(ms) {
             return new Promise(resolve => setTimeout(resolve, ms));
       }
-      function getseries() {
+      async function getseries() {
           $.getJSON('series.json', function(result) {
               console.log(result); 
               for(var i = 0; i < result.series.length; i++) {
