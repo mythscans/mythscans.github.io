@@ -28,9 +28,10 @@ body {
     filter: drop-shadow(2px 0px 6px black);
 }
 .test {
-    height: 300px;
+    height: 400px;
     width: 250px;
-    border-radius: 20px;
+    margin: auto;
+    display: block;
     background-color: rgb(31, 31, 31);
     padding: 10px;
 }
