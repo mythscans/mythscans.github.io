@@ -17,8 +17,9 @@
       }
       function getseries() {
           $.getJSON('series-config.json', function(result) {
+              document.getElementById("outputdiv").innerHTML = document.getElementById("outputdiv").innerHTML + result.description
               for(var i = 0; i < result.chapterlist.length; i++) {
-                document.getElementById("outputdiv").innerHTML = document.getElementById("outputdiv").innerHTML + result.description
+                
                 document.getElementById("outputdiv").innerHTML = document.getElementById("outputdiv").innerHTML + `<a href="${result.chapterlist[i]}" class="chapternumber">${result.chapterlist[i]}</a><br>`
               }
                 
