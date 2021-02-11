@@ -26,7 +26,7 @@
                 name.push(result.series[i])
                 console.log(name)
                 $.getJSON(`/${name[i]}/series-config.json`, function(result1) {
-                  document.getElementById("outputdiv").innerHTML = document.getElementById("outputdiv").innerHTML + `<div class="seriessquare"><img src="/images/${name[0]}.jpg" style="width:97%;margin: auto;display: block;"><a href="/${name[0]}" class="seriesname"><p>${result1.name}</p></a></div>`//`<a href="/${name}" class="seriesname">${result1.name}</a>`
+                  document.getElementById("outputdiv").innerHTML = document.getElementById("outputdiv").innerHTML + `<div class="seriessquare"><img src="/images/${name[name.length-1]}.jpg" style="width:97%;margin: auto;display: block;"><a href="/${name[name.length-1]}" class="seriesname"><p>${result1.name}</p></a></div>`//`<a href="/${name}" class="seriesname">${result1.name}</a>`
                   name.pop()
                 })
                 
