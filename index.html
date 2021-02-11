@@ -20,30 +20,29 @@
       }
       function getseries() {
         var complete = 0;
-          async function test(result) {
-                var foutput = []
-                console.log(result); 
-                var name = []
-                for(var i = 0; i < result.series.length; i++) {
-                  name.push(result.series[i])
-                  console.log(name)
-                  await $.getJSON(`/${name[i]}/series-config.json`, function(result1) {
-                    var ci = result.series.indexOf(name[0]);
-                    foutput[ci] = (`<div class="seriessquare"><img src="/images/${name[0]}.jpg" style="width:97%;margin: auto;display: block;"><a href="/${name[0]}" class="seriesname"><p>${result1.name}</p></a></div>`)//`<a href="/${name}" class="seriesname">${result1.name}</a>`
-                    name.splice(ci,1)
-                  }).then(()=> {
-                    console.log(complete)
-                    complete++;
-                    if(complete == result.series.length) {
-                      console.log("worked")
-                      console.log(foutput)
-                      document.getElementById("outputdiv").innerHTML = foutput.join("")
-                    }
-                  })
-                  
-                }
-          }
-          $.getJSON('series.json', test(result));
+          $.getJSON('series.json', function(result) {
+              var foutput = []
+              console.log(result); 
+              var name = []
+              for(var i = 0; i < result.series.length; i++) {
+                name.push(result.series[i])
+                console.log(name)
+                $.getJSON(`/${name[i]}/series-config.json`, function(result1) {
+                  var ci = result.series.indexOf(name[0]);
+                  foutput[ci] = (`<div class="seriessquare"><img src="/images/${name[0]}.jpg" style="width:97%;margin: auto;display: block;"><a href="/${name[0]}" class="seriesname"><p>${result1.name}</p></a></div>`)//`<a href="/${name}" class="seriesname">${result1.name}</a>`
+                  name.splice(ci,1)
+                }).then(()=> {
+                  console.log(complete)
+                  complete++;
+                  if(complete == result.series.length) {
+                    console.log("worked")
+                    console.log(foutput)
+                    document.getElementById("outputdiv").innerHTML = foutput.join("")
+                  }
+                })
+                
+              }
+          });
           
           //console.log(test.responseText);
       }
