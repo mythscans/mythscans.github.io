@@ -19,7 +19,7 @@
       function getseries() {
           $.getJSON('series-config.json', function(result) {
               document.getElementById("outputdiv").innerHTML = document.getElementById("outputdiv").innerHTML + `<img class="seriesimage" src="/images/${result.name}.jpg">`
-              document.getElementById("outputdiv").innerHTML = document.getElementById("outputdiv").innerHTML + result.description + "<br>"
+              document.getElementById("outputdiv").innerHTML = document.getElementById("outputdiv").innerHTML + `<p class="seriesdescription">${result.description}</p>` + "<br>"
               for(var i = 0; i < result.chapterlist.length; i++) {
                 document.getElementById("outputdiv").innerHTML = document.getElementById("outputdiv").innerHTML + `<a href="${result.chapterlist[i]}" class="chapternumber">${result.chapterlist[i]}</a><br>`
               }
