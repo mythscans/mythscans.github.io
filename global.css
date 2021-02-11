@@ -43,13 +43,13 @@ body {
     background-color: rgb(31, 31, 31);
     margin: auto;
     font-family: 'Montserrat', sans-serif;
-    margin-right: 5px;
+    
 }
 .seriesimage {
     width: 25%;
     float: left;
-    margin-left: 15px;
+    margin-right: 15px;
 }
 .seriesdescription {
-    margin-left: 15px;
+    margin-right: 15px;
 }
