@@ -46,8 +46,8 @@ body {
 .seriesimage {
     width: 25%;
     float: left;
-
+    margin-left: 15px;
 }
 .seriesdescription {
-    padding-left: 15px;;
+    margin-left: 15px;
 }
