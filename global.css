@@ -34,4 +34,5 @@ body {
     display: block;
     background-color: rgb(31, 31, 31);
     padding: 10px;
+    padding-left: 5px;
 }
