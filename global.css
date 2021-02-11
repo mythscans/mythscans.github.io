@@ -25,4 +25,5 @@ body {
     width: 100vw;
     color: floralwhite;
     background-color: #386eeb;
+    filter: drop-shadow(2px 0px 6px black);
 }
