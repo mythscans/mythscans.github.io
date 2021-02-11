@@ -14,6 +14,10 @@ body {
     margin-right: auto;
     display:block;
 }
+.chapternumber {
+    color:rgb(218, 218, 218);
+    text-decoration: none;
+}
 .header {
     position: absolute;
     top:0px;
