@@ -43,7 +43,7 @@
                   
                 }
           }
-          $.getJSON('series.json', test(data));
+          $.getJSON('series.json', test((data)=>{return data}));
           
           //console.log(test.responseText);
       }
