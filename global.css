@@ -37,3 +37,10 @@ body {
     font-family: 'Montserrat', sans-serif;
     float: left;
 }
+.seriesinfo {
+    width: 95%;
+}
+.seriesimage {
+    width: 45%;
+    float: left;
+}
