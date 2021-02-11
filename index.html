@@ -34,16 +34,13 @@
                 }).then(()=> {
                   console.log(complete)
                   complete++;
+                  if(complete == result.series.length) {
+                    console.log("worked")
+                    console.log(foutput)
+                    document.getElementById("outputdiv").innerHTML = foutput.join("")
+                  }
                 })
                 
-              }
-              while(true) {
-                if(complete < result.series.length) {
-                  console.log("worked")
-                  console.log(foutput)
-                  document.getElementById("outputdiv").innerHTML = foutput.join("")
-                  break;
-                }
               }
           });
           
