@@ -29,7 +29,8 @@
                 console.log(name)
                 $.getJSON(`/${name[i]}/series-config.json`, function(result1) {
                   var ci = result.series.indexOf(name[0]);
-                  foutput[ci] = (`<div class="seriessquare"><img src="/images/${name[ci]}.jpg" style="width:97%;margin: auto;display: block;"><a href="/${name[ci]}" class="seriesname"><p>${result1.name}</p></a></div>`)//`<a href="/${name}" class="seriesname">${result1.name}</a>`
+                  foutput[ci] = (`<div class="seriessquare"><img src="/images/${name[0]}.jpg" style="width:97%;margin: auto;display: block;"><a href="/${name[0]}" class="seriesname"><p>${result1.name}</p></a></div>`)//`<a href="/${name}" class="seriesname">${result1.name}</a>`
+                  name.splice(0,1)
                 }).then(()=> {
                   console.log(complete)
                   complete++;
