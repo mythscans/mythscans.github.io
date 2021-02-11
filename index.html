@@ -19,19 +19,31 @@
             return new Promise(resolve => setTimeout(resolve, ms));
       }
       function getseries() {
+        var complete = 0;
           $.getJSON('series.json', function(result) {
+              var foutput = []
               console.log(result); 
               var name = []
               for(var i = 0; i < result.series.length; i++) {
                 name.push(result.series[i])
                 console.log(name)
                 $.getJSON(`/${name[i]}/series-config.json`, function(result1) {
-                  document.getElementById("outputdiv").innerHTML = document.getElementById("outputdiv").innerHTML + `<div class="seriessquare"><img src="/images/${name[0]}.jpg" style="width:97%;margin: auto;display: block;"><a href="/${name[0]}" class="seriesname"><p>${result1.name}</p></a></div>`//`<a href="/${name}" class="seriesname">${result1.name}</a>`
+                  var ci = result.series.indexOf(name[0]);
+                  foutput[ci] = (`<div class="seriessquare"><img src="/images/${name[0]}.jpg" style="width:97%;margin: auto;display: block;"><a href="/${name[0]}" class="seriesname"><p>${result1.name}</p></a></div>`)//`<a href="/${name}" class="seriesname">${result1.name}</a>`
                   name.splice(0,1)
+                }).then(()=> {
+                  complete++;
                 })
                 
               }
+              while(true) {
+                if(complete < result.series.length) {
+                  document.getElementById("outputdiv").innerHTML = foutput.join("")
+                  break;
+                }
+              }
           });
+          
           //console.log(test.responseText);
       }
       getseries();
