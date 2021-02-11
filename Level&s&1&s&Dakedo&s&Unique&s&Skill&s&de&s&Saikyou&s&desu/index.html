@@ -20,7 +20,7 @@
       }
       function getseries() {
           $.getJSON('series-config.json', function(result) {
-            
+              document.getElementById("outputdiv").innerHTML = document.getElementById("outputdiv").innerHTML + `<img src="/images/${result.name}">`
               document.getElementById("outputdiv").innerHTML = document.getElementById("outputdiv").innerHTML + result.description + "<br>"
               for(var i = 0; i < result.chapterlist.length; i++) {
                 document.getElementById("outputdiv").innerHTML = document.getElementById("outputdiv").innerHTML + `<a href="${result.chapterlist[i]}" class="chapternumber">${result.chapterlist[i]}</a><br>`
