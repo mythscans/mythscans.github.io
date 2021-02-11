@@ -42,6 +42,7 @@ body {
     height: 1000px;
     background-color: rgb(31, 31, 31);
     margin: auto;
+    font-family: 'Montserrat', sans-serif;
 }
 .seriesimage {
     width: 25%;
