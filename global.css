@@ -49,10 +49,9 @@ body {
 .seriesimage {
     width: 25%;
     float: left;
-    margin-right: 15px;
+    margin-right: 1%;
 }
 .seriesdescription {
-    margin-right: 15px;
     float: right;
     width: 73%;
 }
