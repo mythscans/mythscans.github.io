@@ -21,7 +21,7 @@
       function getseries() {
           $.getJSON('series-config.json', function(result) {
               document.getElementById("outputdiv").innerHTML = document.getElementById("outputdiv").innerHTML + `<img class="seriesimage" src="/images/${result.name}.jpg">`
-              document.getElementById("outputdiv").innerHTML = document.getElementById("outputdiv").innerHTML + `<div class="seriesdescription" id="test">Description:<br><p style="border-top:2px solid white">${result.description}</p></div>` + "<br>"
+              document.getElementById("outputdiv").innerHTML = document.getElementById("outputdiv").innerHTML + `<div class="seriesdescription" id="test">Description:<p style="border-top:1px solid white">${result.description}</p></div>` + "<br>"
               for(var i = 0; i < result.chapterlist.length; i++) {
                 document.getElementById("test").innerHTML = document.getElementById("test").innerHTML + `<a href="${result.chapterlist[i]}" class="chapternumber">${result.chapterlist[i]}</a><br>`
               }
