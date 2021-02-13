@@ -52,4 +52,6 @@ body {
 }
 .seriesdescription {
     margin-right: 15px;
+    float: right;
+    width: 73%;
 }
