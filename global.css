@@ -39,10 +39,11 @@ body {
 }
 .seriesinfo {
     width: 95%;
-    height: 1000px;
+    height: 85vh;
     background-color: rgb(31, 31, 31);
     margin: auto;
     font-family: 'Montserrat', sans-serif;
+
     
 }
 .seriesimage {
