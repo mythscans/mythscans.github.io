@@ -17,7 +17,7 @@
       }
       function getseries() {
           $.getJSON('chapter-config.json', function(result) {
-            document.getElementById("outputdiv").innerHTML = `<h3>${result.name} - Chapter ${result.chapternumber}`;
+            document.getElementById("outputdiv").innerHTML = `<h3 class="seriesname">${result.name} - Chapter ${result.chapternumber}`;
                 for(var i = 1; i <= result.pages; i++) {
                     document.getElementById("outputdiv").innerHTML = document.getElementById("outputdiv").innerHTML + `<img class="chapter" src = "${i}.png"></img>`
                 }
