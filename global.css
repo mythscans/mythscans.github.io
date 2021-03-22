@@ -81,7 +81,7 @@ body {
 h1 {
     text-align: center;
 }
-#layout {
+#disqus_thread {
     width: 98vw;
     margin: auto;
 }
