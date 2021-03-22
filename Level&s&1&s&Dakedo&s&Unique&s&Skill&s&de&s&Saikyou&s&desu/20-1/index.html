@@ -38,7 +38,7 @@
         function getseries() {
           $.getJSON('chapter-config.json', function (result) {
             document.getElementById("outputdiv").innerHTML = `<h1 class="seriesname">${result.name} - Chapter ${result.chapternumber}<h3>`;
-            document.getElementById("outputdiv").innerHTML = document.getElementById("outputdiv").innerHTML + `<div style="margin:auto;width:80vw"><a href="../?last+${result.chapternumber}"><div class="nlbutton" style="float:left">Last</div></a><a href="../?next+${result.chapternumber}"><div class="nlbutton" style="float:right">Next</div></a></div>`;
+            document.getElementById("outputdiv").innerHTML = document.getElementById("outputdiv").innerHTML + `<div style="margin:auto;width:80vw;margin-bottom:11px;height:50px;"><a href="../?last+${result.chapternumber}"><div class="nlbutton" style="float:left">Last</div></a><a href="../?next+${result.chapternumber}"><div class="nlbutton" style="float:right">Next</div></a></div>`;
             for (var i = 1; i <= result.pages; i++) {
               document.getElementById("outputdiv").innerHTML = document.getElementById("outputdiv").innerHTML + `<img class="chapter" src = "${i}.jpg"></img>`
             }
