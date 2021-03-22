@@ -18,9 +18,9 @@
         function getseries() {
           $.getJSON('chapter-config.json', function (result) {
             document.getElementById("outputdiv").innerHTML = `<h3 class="seriesname">${result.name} - Chapter ${result.chapternumber}<h3>`;
-            document.getElementById("outputdiv").innerHTML = document.getElementById("outputdiv").innerHTML + `<a href="${window.location.href.split("/(?<!\/)\/(?!\/)/gm")[0] + window.location.href.split("/(?<!\/)\/(?!\/)/gm")[1] + window.location.href.split("?")[1].split("+")[1]}"><div class="nlbutton">Next</div></a>`;
+            document.getElementById("outputdiv").innerHTML = document.getElementById("outputdiv").innerHTML + `<a href="${[window.location.pathname.split("/")[0] , window.location.pathname.split("/")[1] , window.location.search.split("?")[1].split("+")[1] , window.location.pathname.split("/")[3]].join("/")}"><div class="nlbutton">Next</div></a>`;
             for (var i = 1; i <= result.pages; i++) {
-              document.getElementById("outputdiv").innerHTML = document.getElementById("outputdiv").innerHTML + `<img class="chapter" src = "${i}.png"></img>`
+              document.getElementById("outputdiv").innerHTML = document.getElementById("outputdiv").innerHTML + `<img class="chapter" src = "${i}.jpg"></img>`
             }
           });
         }
