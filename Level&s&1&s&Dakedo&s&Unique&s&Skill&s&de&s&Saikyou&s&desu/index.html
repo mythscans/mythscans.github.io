@@ -23,7 +23,9 @@
               if(window.location.search.includes("next")) {
                 //next+20-1
                 ndata = window.location.search.split("?").join("").split("+")
-                window.location=result.chapterlist[result.chapterlist.indexOf(ndata[1]) + 1]
+                if(result.chapterlist.indexOf(ndata[1]) != result.chapterlist.length - 1){
+                  window.location=result.chapterlist[result.chapterlist.indexOf(ndata[1]) + 1]
+                }
               }
               document.getElementById("outputdiv").innerHTML = document.getElementById("outputdiv").innerHTML + `<img class="seriesimage" src="/images/${result.name}.jpg">`
               document.getElementById("outputdiv").innerHTML = document.getElementById("outputdiv").innerHTML + `<div class="seriesdescription" id="test">Description:<p style="border-top:1px solid white;margin-top:5px">${result.description}</p><p style="margin-bottom:0px;border-bottom:1px solid white">Chapters:</p></div>` + "<br>"
