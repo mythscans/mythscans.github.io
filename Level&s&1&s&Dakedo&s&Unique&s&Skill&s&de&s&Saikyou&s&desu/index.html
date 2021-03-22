@@ -27,6 +27,13 @@
                   window.location=result.chapterlist[result.chapterlist.indexOf(ndata[1]) + 1]
                 }
               }
+              if(window.location.search.includes("last")) {
+                //last+20-1
+                ndata = window.location.search.split("?").join("").split("+")
+                if(result.chapterlist.indexOf(ndata[1]) != 0){
+                  window.location=result.chapterlist[result.chapterlist.indexOf(ndata[1]) - 1]
+                }
+              }
               document.getElementById("outputdiv").innerHTML = document.getElementById("outputdiv").innerHTML + `<img class="seriesimage" src="/images/${result.name}.jpg">`
               document.getElementById("outputdiv").innerHTML = document.getElementById("outputdiv").innerHTML + `<div class="seriesdescription" id="test">Description:<p style="border-top:1px solid white;margin-top:5px">${result.description}</p><p style="margin-bottom:0px;border-bottom:1px solid white">Chapters:</p></div>` + "<br>"
               for(var i = 0; i < result.chapterlist.length; i++) {
