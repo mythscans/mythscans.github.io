@@ -81,3 +81,7 @@ body {
 h1 {
     text-align: center;
 }
+#layout {
+    width: 98vw;
+    margin: auto;
+}
