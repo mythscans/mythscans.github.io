@@ -52,7 +52,6 @@
           return new Promise(resolve => setTimeout(resolve, ms));
         }
         function getseries() {
-          $.getJSON('chapter-config.json', function (result) {
             var urldata = window.location.pathname.split("/")
             seriesname = urldata[1]
             chapternumber = urldata[2]
@@ -63,7 +62,6 @@
               document.getElementById("outputdiv").innerHTML = document.getElementById("outputdiv").innerHTML + `<a href="#${i+1}"><img class="chapter" id="${i}" src = "${i}.jpg"></img></a>`
             }
             document.getElementById("outputdiv").innerHTML = document.getElementById("outputdiv").innerHTML + `<div style="margin:auto;width:80vw;margin-bottom:11px;height:50px;margin-top:11px"><a href="../?last+${chapternumber}"><div class="nlbutton" style="float:left">Last</div></a><a href="../?next+${chapternumber}"><div class="nlbutton" style="float:right">Next</div></a></div>`;
-          });
         }
         getseries();
   </script>
