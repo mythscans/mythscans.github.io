@@ -35,6 +35,7 @@
                 }
               }
               document.getElementById("outputdiv").innerHTML = document.getElementById("outputdiv").innerHTML + `<img src="/images/${result.name}.jpg" style="z-index:-4;position:fixed;width:100%;top:0px;filter:brightness(0.5);left:0px;">`
+              document.getElementById("outputdiv").innerHTML = document.getElementById("outputdiv").innerHTML + `<p style="font-size:80px;margin:auto;text-align:center; position: absolute; top: 80px">${result.name.split("&s&").join(" ")}</p>`
               document.getElementById("outputdiv").innerHTML = document.getElementById("outputdiv").innerHTML + `<div class="seriesdescription" id="test" >Description:<p style="border-top:1px solid white;margin-top:5px">${result.description}</p><p style="margin-bottom:0px;border-bottom:1px solid white">Chapters:</p></div>` + "<br>"
               for(var i = 0; i < result.chapterlist.length; i++) {
                 document.getElementById("test").innerHTML = document.getElementById("test").innerHTML + `<a href="${result.chapterlist[i]}?${i==0?"+"+(i==result.chapterlist.length-1?"":result.chapterlist[i+1]):result.chapterlist[i-1]+"+"+(i==result.chapterlist.length-1?"":result.chapterlist[i+1])}" class="chapternumber">${result.chapterlist[i]}</a><br>`
