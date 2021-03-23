@@ -34,7 +34,7 @@
                 console.log(name)
                 $.getJSON(`/${name[i]}/series-config.json`, function(result1) {
                   var ci = result.series.indexOf(name[0]);
-                  foutput[ci] = (`<a href="/${name[0]}" class="seriesname"><div class="seriessquare"><img src="/images/${name[0]}.jpg" style="width:97%;margin: auto;display: block;"><p>${name[0].split("&s&").join(" ")}</p></div></a>`)//`<a href="/${name}" class="seriesname">${result1.name}</a>`
+                  foutput[ci] = (`<a href="/${name[0]}" class="seriesname"><div class="seriessquare"><img src="/images/${name[0]}.jpg" style="width:97%;margin: auto;display: block;"><p style="margin-bottom:5px">${name[0].split("&s&").join(" ")}</p></div></a>`)//`<a href="/${name}" class="seriesname">${result1.name}</a>`
                   name.splice(0,1)
                 }).then(()=> {
                   console.log(complete)
