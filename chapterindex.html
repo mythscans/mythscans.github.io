@@ -64,5 +64,12 @@
             document.getElementById("outputdiv").innerHTML = document.getElementById("outputdiv").innerHTML + `<div style="margin:auto;width:80vw;margin-bottom:11px;height:50px;margin-top:11px"><a href="../?last+${chapternumber}"><div class="nlbutton" style="float:left">Last</div></a><a href="../?next+${chapternumber}"><div class="nlbutton" style="float:right">Next</div></a></div>`;
         }
         getseries();
+        if(window.mobileCheck()) {
+          var styleEl = document.createElement('style');
+          document.head.appendChild(styleEl);
+          styleEl.sheet.insertRule(".seriesdescription {font-size:240%")
+          styleEl.sheet.insertRule(".header {position:fixed !important;height:125px !important; z-index:5}")
+          styleEl.sheet.insertRule("#shadowheader {height:125px !important}")
+        }
   </script>
 </body>
