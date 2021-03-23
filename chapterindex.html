@@ -56,7 +56,8 @@
             seriesname = urldata[1]
             chapternumber = urldata[2]
             document.title = seriesname.split("&s&").join(" ")
-            document.getElementById("outputdiv").innerHTML = `<h1 class="seriesname">${seriesname.split("&s&").join(" ")} - Chapter ${chapternumber}<h1>`;
+            $(".header").append(`<p style="float: right;font-size: 47px;margin-top: 10px;margin-right: 20px;color: floralwhite; max-width: 80%; max-height:80px; overflow:hidden; white-space: nowrap; text-overflow: ellipsis">${seriesname}</p>`)
+            document.getElementById("outputdiv").innerHTML = `<h1 class="seriesname">Chapter ${chapternumber}<h1>`;
             document.getElementById("outputdiv").innerHTML = document.getElementById("outputdiv").innerHTML + `<div style="margin:auto;width:80vw;margin-bottom:11px;height:50px;"><a href="../?last+${chapternumber}"><div class="nlbutton" style="float:left">Last</div></a><a href="../?next+${chapternumber}"><div class="nlbutton" style="float:right">Next</div></a></div>`;
             for (var i = 1; imageExists(`./${i}.jpg`); i++) {
               document.getElementById("outputdiv").innerHTML = document.getElementById("outputdiv").innerHTML + `<a href="#${i+1}"><img class="chapter" id="${i}" src = "${i}.jpg"></img></a>`
