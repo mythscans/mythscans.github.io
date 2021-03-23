@@ -7,42 +7,43 @@
   </script>
   <link rel="stylesheet" href="/global.css">
   <title></title>
-  <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
 </head>
 <body>
   <div class="header"><a href="https://mythscans.github.io/"><img src="/mythslogo.png" style="height: 97%;filter: drop-shadow(0px 0px 3px black);"></img><a></div>
-  <div id="shadowheader" style="height: 85px;"></div>
-  <div id="outputdiv" class="seriesinfo" style="width: 100%;margin-top:250px"></div>
+    <div id="shadowheader" style="height: 85px;"></div>
+  <div id="outputdiv"></div>
+  <div id="disqus_thread"></div>
+  <script>
+      /**
+      *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+      *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
+      /*
+      var disqus_config = function () {
+      this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+      this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+      };
+      */
+      (function() { // DON'T EDIT BELOW THIS LINE
+      var d = document, s = d.createElement('script');
+      s.src = 'https://https-mythscans-github-io.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+      })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
   <script>
       function sleep(ms) {
-            return new Promise(resolve => setTimeout(resolve, ms));
-      }
-      function getseries() {
-          $.getJSON('series-config.json', function(result) {
-              if(window.location.search.includes("next")) {
-                //next+20-1
-                ndata = window.location.search.split("?").join("").split("+")
-                if(result.chapterlist.indexOf(ndata[1]) != result.chapterlist.length - 1){
-                  window.location=result.chapterlist[result.chapterlist.indexOf(ndata[1]) + 1]
-                }
-              }
-              if(window.location.search.includes("last")) {
-                //last+20-1
-                ndata = window.location.search.split("?").join("").split("+")
-                if(result.chapterlist.indexOf(ndata[1]) != 0){
-                  window.location=result.chapterlist[result.chapterlist.indexOf(ndata[1]) - 1]
-                }
-              }
-              document.getElementById("outputdiv").innerHTML = document.getElementById("outputdiv").innerHTML + `<img src="/images/${result.name}.jpg" style="z-index:-4;position:fixed;width:100%;top:0px;filter:brightness(0.5);left:0px;">`
-              document.getElementById("outputdiv").innerHTML = document.getElementById("outputdiv").innerHTML + `<p style="font-size:80px;margin:auto;text-align:center; position: absolute; top: 95px">${result.name.split("&s&").join(" ")}</p>`
-              document.getElementById("outputdiv").innerHTML = document.getElementById("outputdiv").innerHTML + `<div class="seriesdescription" id="test" >Description:<p style="border-top:1px solid white;margin-top:5px">${result.description}</p><p style="margin-bottom:0px;border-bottom:1px solid white">Chapters:</p></div>` + "<br>"
-              for(var i = 0; i < result.chapterlist.length; i++) {
-                document.getElementById("test").innerHTML = document.getElementById("test").innerHTML + `<a href="${result.chapterlist[i]}?${i==0?"+"+(i==result.chapterlist.length-1?"":result.chapterlist[i+1]):result.chapterlist[i-1]+"+"+(i==result.chapterlist.length-1?"":result.chapterlist[i+1])}" class="chapternumber">${result.chapterlist[i]}</a><br>`
-              }
-                
+          return new Promise(resolve => setTimeout(resolve, ms));
+        }
+        function getseries() {
+          $.getJSON('chapter-config.json', function (result) {
+            document.getElementById("outputdiv").innerHTML = `<h1 class="seriesname">${result.name} - Chapter ${result.chapternumber}<h3>`;
+            document.getElementById("outputdiv").innerHTML = document.getElementById("outputdiv").innerHTML + `<div style="margin:auto;width:80vw;margin-bottom:11px;height:50px;"><a href="../?last+${result.chapternumber}"><div class="nlbutton" style="float:left">Last</div></a><a href="../?next+${result.chapternumber}"><div class="nlbutton" style="float:right">Next</div></a></div>`;
+            for (var i = 1; i <= result.pages; i++) {
+              document.getElementById("outputdiv").innerHTML = document.getElementById("outputdiv").innerHTML + `<a href="#${i+1}"><img class="chapter" id="${i}" src = "${i}.jpg"></img></a>`
+            }
           });
-      }
-      getseries();
+        }
+        getseries();
   </script>
 </body>
