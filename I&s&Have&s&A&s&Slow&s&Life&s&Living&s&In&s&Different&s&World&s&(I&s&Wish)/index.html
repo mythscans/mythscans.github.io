@@ -20,6 +20,7 @@
       }
       function getseries() {
           $.getJSON('series-config.json', function(result) {
+            console.log("proof")
               if(window.location.search.includes("next")) {
                 //next+20-1
                 ndata = window.location.search.split("?").join("").split("+")
