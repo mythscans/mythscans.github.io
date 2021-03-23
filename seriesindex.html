@@ -40,7 +40,7 @@
                   window.location=result.chapterlist[result.chapterlist.indexOf(ndata[1]) - 1]
                 }
               }
-              $('head').append(`<title>${result.name.split("&s&").join(" ")}</title>`);
+              document.title = result.name.split("&s&").join(" ")
               document.getElementById("outputdiv").innerHTML = document.getElementById("outputdiv").innerHTML + `<img src="/images/${result.name}.jpg" style="z-index:-4;position:fixed;width:100%;top:-60px;filter:brightness(0.5);left:0px;">`
               document.getElementById("outputdiv").innerHTML = document.getElementById("outputdiv").innerHTML + `<p style="font-size:80px;margin:auto;text-align:center; position: absolute; top: 95px" id="seriesnamestuff">${result.name.split("&s&").join(" ")}</p>`
               document.getElementById("outputdiv").innerHTML = document.getElementById("outputdiv").innerHTML + `<div class="seriesdescription" id="test" >Description:<p style="border-top:1px solid white;margin-top:5px">${result.description}</p><p style="margin-bottom:0px;border-bottom:1px solid white">Chapters:</p></div>` + "<br>"
