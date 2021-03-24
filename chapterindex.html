@@ -56,6 +56,7 @@
         $.getJSON('../series-config.json', function(result) {
             chapters = result.chapterlist
             cchapter = chapters.indexOf(chapternumber)
+            console.log(cchapter);
             if(cchapter == 0) window.location.href = `../`;
             window.location.href = `../${chapters[cchapter - 1]}`
           });
