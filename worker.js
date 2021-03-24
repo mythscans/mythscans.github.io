@@ -10,7 +10,7 @@ function imageExists(image_url){
   }
 function setChapterCookies(chapternumber,seriesname) {
     var i = 1
-    for(i = 1; imageExists(`./${chapternumber}/${i}.jpg`) && i < 150;i++) {}//increments i until no
+    for(i = 1; imageExists(`./${seriesname}/${chapternumber}/${i}.jpg`) && i < 150;i++) {}//increments i until no
     postMessage(`pages+${chapternumber}+${seriesname}=${i}; path=/`)
   }
   onmessage = function(e) {
