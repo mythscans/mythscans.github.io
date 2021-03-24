@@ -45,8 +45,11 @@
         $.getJSON('../series-config.json', function(result) {
             chapters = result.chapterlist
             cchapter = chapters.indexOf(chapternumber)
-            if(cchapter == chapters.length - 1) window.location.href = `../`;
-            //window.location.href = `../${chapters[cchapter + 1]}`
+            if(cchapter == chapters.length - 1) {
+              window.location.href = `../`
+              return 0;
+            };
+            window.location.href = `../${chapters[cchapter + 1]}`
           });
         //window.location.href = `../?last+${chapternumber}`
       }
@@ -57,8 +60,11 @@
             chapters = result.chapterlist
             cchapter = chapters.indexOf(chapternumber)
             console.log(cchapter);
-            if(cchapter == 0) window.location.href = `../`;
-            //window.location.href = `../${chapters[cchapter - 1]}`
+            if(cchapter == 0){ 
+              window.location.href = `../`
+              return 0;
+            };
+            window.location.href = `../${chapters[cchapter - 1]}`
           });
         //window.location.href = `../?last+${chapternumber}`
       }
