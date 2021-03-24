@@ -15,5 +15,5 @@ function imageExists(image_url){
   }
   onmessage = function(e) {
     console.log('Message received from main script');
-    setChapterCookies(e[0], e[1])
+    setChapterCookies(e.data[0], e.data[1])
   }

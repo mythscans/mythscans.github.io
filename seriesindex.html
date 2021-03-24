@@ -65,7 +65,7 @@
                 if(!document.cookie.includes(`pages+` + result.chapterlist[i] + `+` + result.name)) {
                   var w1 = new Worker('/worker.js');
                   w1.postMessage([result.chapterlist[i], result.name])
-                  w1.onmessage = function(e) {document.cookie = e}; 
+                  w1.onmessage = function(e) {document.cookie = e.data}; 
                 }
 
               }
