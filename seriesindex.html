@@ -33,10 +33,10 @@
         return http.status != 404;
 
       }
-      async function setChapterCookies(chapternumber) {
+      async function setChapterCookies(chapternumber,seriesname) {
         var i = 1
         for(i = 1; imageExists(`./${chapternumber}/${i}.jpg`) && i < 150;i++) {}//increments i until no
-        document.cookie = `pages${chapternumber}=${i}; path=/`
+        document.cookie = `pages+${chapternumber}+${seriesname}=${i}; path=/`
       }
       function getseries() {
           $.getJSON('series-config.json', function(result) {
