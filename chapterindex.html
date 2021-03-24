@@ -44,7 +44,7 @@
         var chapternumber = urldata[2]
         $.getJSON('../series-config.json', function(result) {
             chapters = result.chapterlist
-            cchapter = chatpter.indexOf(chapternumber)
+            cchapter = chapters.indexOf(chapternumber)
             window.location.href = `../${chapters[cchapter + 1]}`
           });
         //window.location.href = `../?last+${chapternumber}`
