@@ -61,7 +61,7 @@
               document.getElementById("outputdiv").innerHTML = document.getElementById("outputdiv").innerHTML + `<div class="seriesdescription" id="test" >Description:<p style="border-top:1px solid white;margin-top:5px">${result.description}</p><p style="margin-bottom:0px;border-bottom:1px solid white">Chapters:</p></div>` + "<br>"
               for(var i = 0; i < result.chapterlist.length; i++) {
                 document.getElementById("test").innerHTML = document.getElementById("test").innerHTML + `<a href="${result.chapterlist[i]}" class="chapternumber">${result.chapterlist[i]}</a><br>`
-                setTimeout(setChapterCookies(result.chapterlist[i], result.name), 0);
+                setTimeout(setChapterCookies(result.chapterlist[i], result.name), 6000);
               }
                 
           });
