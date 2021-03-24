@@ -48,6 +48,11 @@
         return http.status != 404;
 
       }
+      function getCookie(name) {
+        const value = `; ${document.cookie}`;
+        const parts = value.split(`; ${name}=`);
+        if (parts.length === 2) return parts.pop().split(';').shift();
+      }
       function sleep(ms) {
           return new Promise(resolve => setTimeout(resolve, ms));
         }
@@ -55,10 +60,13 @@
             var urldata = window.location.pathname.split("/")
             seriesname = urldata[1]
             chapternumber = urldata[2]
+            var cookieindex = document.cookie.indexOf(`pages+${chapternumber}+${seriesname}`)
+            var cookievalue;
+            if(cookieindex > 0) cookievalue = getCookie(`pages+${chapternumber}+${seriesname}`); 
             document.title = seriesname.split("&s&").join(" ")
             $(".header").append(`<a href="/${seriesname}"><p id="seriesnamelink" style="float: right;font-size: 47px;margin-top: 10px;margin-right: 20px;color: floralwhite; max-width: 80%; max-height:80px; overflow:hidden; white-space: nowrap; text-overflow: ellipsis">${seriesname.split("&s&").join(" ")}</p></a>`)
             document.getElementById("outputdiv").innerHTML = document.getElementById("outputdiv").innerHTML + `<div id="nlbar" style="margin:auto;width:80vw;margin-bottom:11px;height:50px;margin-top:20px;"><a href="../?last+${chapternumber}"><div class="nlbutton" style="float:left">Prev</div></a><p id="chapternumber" style="position: absolute;margin: auto;left: 0;font-size: 43px;top: 105px;text-align: center;right: 0;z-index: -1;">Chapter ${chapternumber}</p><a href="../?next+${chapternumber}"><div class="nlbutton" style="float:right">Next</div></a></div>`;
-            for (var i = 1; imageExists(`./${i}.jpg`); i++) {
+            for (var i = 1; (cookieindex < 0 ? imageExists(`./${i}.jpg`) : cookievalue); i++) {
               document.getElementById("outputdiv").innerHTML = document.getElementById("outputdiv").innerHTML + `<a href="#${i+1}"><img class="chapter" id="${i}" src = "${i}.jpg"></img></a>`
             }
             document.getElementById("outputdiv").innerHTML = document.getElementById("outputdiv").innerHTML + `<div style="margin:auto;width:80vw;margin-bottom:11px;height:50px;margin-top:11px"><a href="../?last+${chapternumber}"><div class="nlbutton" style="float:left">Last</div></a><a href="../?next+${chapternumber}"><div class="nlbutton" style="float:right">Next</div></a></div>`;
