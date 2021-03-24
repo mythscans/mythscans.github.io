@@ -23,11 +23,11 @@
       function sleep(ms) {
             return new Promise(resolve => setTimeout(resolve, ms));
       }
-      function imageExists(image_url){
+      async function imageExists(image_url){
 
         var http = new XMLHttpRequest();
 
-        http.open('HEAD', image_url, true);
+        await http.open('HEAD', image_url, true);
         http.send();
 
         return http.status != 404;
