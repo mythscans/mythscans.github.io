@@ -28,7 +28,7 @@
         var http = new XMLHttpRequest();
 
         await http.open('HEAD', image_url, true);
-        http.send();
+        await http.send();
 
         return http.status != 404;
 
