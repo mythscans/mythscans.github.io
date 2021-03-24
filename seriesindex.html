@@ -29,7 +29,7 @@
 
         await http.open('HEAD', image_url, true);
         await http.send();
-        console.log(http.status)
+        console.log(http)
         return http.status != 404;
 
       }
