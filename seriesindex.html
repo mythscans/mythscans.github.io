@@ -30,7 +30,7 @@
         await http.open('HEAD', image_url, true);
         await http.send();
         console.log(http)
-        return http.status != 404;
+        setTimeout(function(){return http.status != 404}()), 10;
 
       }
       async function setChapterCookies(chapternumber, seriesname) {
