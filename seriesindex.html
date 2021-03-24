@@ -36,7 +36,7 @@
       async function setChapterCookies(chapternumber) {
         var i = 1
         for(i = 1; imageExists(`./${chapternumber}/${i}.jpg`) && i < 150;i++) {}//increments i until no
-        document.cookie = `pages=${i}; path=./${chapternumber}`
+        document.cookie = `pages${chapternumber}=${i}; path=/`
       }
       function getseries() {
           $.getJSON('series-config.json', function(result) {
