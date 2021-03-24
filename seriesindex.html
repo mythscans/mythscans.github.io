@@ -33,7 +33,7 @@
         return http.status != 404;
 
       }
-      function setChapterCookies(chapternumber, seriesname) {
+      async function setChapterCookies(chapternumber, seriesname) {
         var i = 1
         for(; imageExists(`./${chapternumber}/${i}.jpg`);i++) {}//increments i until no
         document.cookie = `pages=${i}; path=./${chapternumber}`
