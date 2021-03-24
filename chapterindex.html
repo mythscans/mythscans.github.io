@@ -50,6 +50,17 @@
           });
         //window.location.href = `../?last+${chapternumber}`
       }
+      function last() {
+        var urldata = window.location.pathname.split("/")
+        var chapternumber = urldata[2]
+        $.getJSON('../series-config.json', function(result) {
+            chapters = result.chapterlist
+            cchapter = chapters.indexOf(chapternumber)
+            if(cchapter == 0) window.location.href = `../`;
+            window.location.href = `../${chapters[cchapter - 1]}`
+          });
+        //window.location.href = `../?last+${chapternumber}`
+      }
       function imageExists(image_url){
 
         var http = new XMLHttpRequest();
@@ -92,7 +103,7 @@
             for (var i = 1; (cookieindex == -1 ? imageExists(`./${i}.jpg`) : i < cookievalue); i++) {
               document.getElementById("outputdiv").innerHTML = document.getElementById("outputdiv").innerHTML + `<a href="#${i+1}"><img class="chapter" id="${i}" src = "${i}.jpg"></img></a>`
             }
-            document.getElementById("outputdiv").innerHTML = document.getElementById("outputdiv").innerHTML + `<div style="margin:auto;width:80vw;margin-bottom:11px;height:50px;margin-top:11px"><a href="../?last+${chapternumber}"><div class="nlbutton" style="float:left">Last</div></a><a href="../?next+${chapternumber}"><div class="nlbutton" style="float:right">Next</div></a></div>`;
+            document.getElementById("outputdiv").innerHTML = document.getElementById("outputdiv").innerHTML + `<div style="margin:auto;width:80vw;margin-bottom:11px;height:50px;margin-top:11px"><a><div onclick="last()" class="nlbutton" style="float:left">Last</div></a><a><div onclick="next()" class="nlbutton" style="float:right">Next</div></a></div>`;
         }
         getseries();
         if(window.mobileCheck()) {
