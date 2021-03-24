@@ -62,7 +62,9 @@
             chapternumber = urldata[2]
             var cookieindex = document.cookie.indexOf(`pages+${chapternumber}+${seriesname}`)
             var cookievalue;
-            
+            console.log(cookieindex)
+            console.log(cookievalue)
+            console.log(cookieindex < 0)
             if(cookieindex > 0) cookievalue = parseInt(getCookie(`pages+${chapternumber}+${seriesname}`)); 
             document.title = seriesname.split("&s&").join(" ")
             $(".header").append(`<a href="/${seriesname}"><p id="seriesnamelink" style="float: right;font-size: 47px;margin-top: 10px;margin-right: 20px;color: floralwhite; max-width: 80%; max-height:80px; overflow:hidden; white-space: nowrap; text-overflow: ellipsis">${seriesname.split("&s&").join(" ")}</p></a>`)
