@@ -97,9 +97,15 @@
               cookievalue = parseInt(getCookie(`pages+${chapternumber}+${seriesname}`))
             }
             else {
-              var w1 = new Worker('/worker.js');
-              w1.postMessage([chapternumber, seriesname])
-              w1.onmessage = function(e) {document.cookie = e.data}; 
+              $.getJSON('../series-config.json', function(result) {
+                chapters = result.chapterlist
+                for(var i = 0; i < chapters.length; i++) {
+                    nchapternum = chapters[i]
+                    var w1 = new Worker('/worker.js');
+                    w1.postMessage([nchapternum, seriesname])
+                    w1.onmessage = function(e) {document.cookie = e.data}; 
+                  }
+              });
             } 
             document.title = seriesname.split("&s&").join(" ")
             console.log(cookieindex)
