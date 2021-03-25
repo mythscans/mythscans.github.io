@@ -10,7 +10,8 @@ body {
     text-decoration: none;
 }
 .chapter {
-    width: 80vw;
+    max-width: 80%;
+    width: 1080px;
     margin-left: auto;
     margin-right: auto;
     display:block;
