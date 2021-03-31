@@ -30,7 +30,7 @@ body {
     filter: drop-shadow(2px 0px 6px black);
 }
 .seriessquare {
-    height: 400px;
+    height: auto;
     width: 250px;
     background-color: rgb(31, 31, 31);
     padding: 10px;
