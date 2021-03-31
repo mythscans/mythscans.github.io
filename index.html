@@ -35,7 +35,7 @@
                 name.push(result.series[i])
                 console.log(name)
                 $.getJSON(`/${name[i]}/series-config.json`, function(result1) {
-                  var ci = result.series.indexOf(name[0]);
+                  let ci = result.series.indexOf(name[0]);
                   foutput[ci] = (`<a href="/${name[0]}" class="seriesname"><div class="seriessquare" id="seriessquare${ci}"><img src="/images/${name[0]}.jpg" style="width:97%;margin: auto;display: block;"><p id="seriestitle" style="margin-bottom:5px">${name[0].split("&s&").join(" ")}</p></div></a>`)//`<a href="/${name}" class="seriesname">${result1.name}</a>`
                   name.splice(0,1)
                   $.get({
