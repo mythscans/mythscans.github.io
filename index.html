@@ -39,12 +39,18 @@
                   foutput[ci] = (`<a href="/${name[0]}" class="seriesname"><div class="seriessquare" id="seriessquare${ci}"><img src="/images/${name[0]}.jpg" style="width:97%;margin: auto;display: block;"><p id="seriestitle" style="margin-bottom:5px">${name[0].split("&s&").join(" ")}</p></div></a>`)//`<a href="/${name}" class="seriesname">${result1.name}</a>`
                   name.splice(0,1)
                   $.get({
-                      url: `https://api.github.com/repos/mythscans/mythscans.github.io/commits/${result1.dates[ci]}`,
+                      url: `https://api.github.com/repos/mythscans/mythscans.github.io/commits/${result1.dates[result1.chapterlist.length - 1]}`,
                       success: function(response) {
-                          sleep(25);
+                          sleep(17);
                           document.getElementById(`seriessquare${ci}`).innerHTML = document.getElementById(`seriessquare${ci}`).innerHTML + (`<p style="margin:0px; font-size:small; white-space:pre">${result1.chapterlist[result1.chapterlist.length - 1]}       ${response.commit.author.date.split("T")[0]}</p>`)
+                      }
+                      
+                  });
+                  $.get({
+                      url: `https://api.github.com/repos/mythscans/mythscans.github.io/commits/${result1.dates[result1.chapterlist.length - 2]}`,
+                      success: function(response) {
+                          sleep(17);
                           document.getElementById(`seriessquare${ci}`).innerHTML = document.getElementById(`seriessquare${ci}`).innerHTML + (`<p style="margin:0px; font-size:small; white-space:pre">${result1.chapterlist[result1.chapterlist.length - 2]}       ${response.commit.author.date.split("T")[0]}</p>`)
-                          console.log(response.commit.author.date.split("T")[0]);
                       }
                       
                   });
